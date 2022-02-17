@@ -18,6 +18,8 @@ services:
       - 'wordpress_data:/bitnami/wordpress'
     depends_on:
       - mariadb
+    networks:
+      - proxy
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
@@ -31,6 +33,6 @@ volumes:
   wordpress_data:
     driver: local
 networks:
-  default:
+  proxy:
     external: true
     name: root_proxy-network
