@@ -30,3 +30,7 @@ volumes:
     driver: local
   wordpress_data:
     driver: local
+networks:
+  default:
+    external: true
+    name: root_proxy-network
